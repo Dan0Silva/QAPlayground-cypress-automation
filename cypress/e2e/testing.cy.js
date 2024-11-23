@@ -2,7 +2,7 @@
 
 describe("QA Playground testing", () => {
   beforeEach(() => {
-    cy.visit("/");
+    cy.visit("/", { log: false });
   });
 
   it("Find the Spider-Man in a table that changes the order of rows and assert his real name", () => {
@@ -23,5 +23,15 @@ describe("QA Playground testing", () => {
   it("Navigate into the sub-menus and assert menu items text and link", () => {
     cy.get('[href="/apps/multi-level-dropdown/"] > .card-content').click();
     cy.multiLevelDropdown();
+  });
+
+  it.skip("Drag and drop list items to the correct order, then click the button and verify that all items display in green text.", () => {
+    cy.get('[href="/apps/sortable-list/"] > .card-content').click();
+    cy.sortableList();
+  });
+
+  it.only("Open new tab by clicking on the button and assert text on the opened new page", () => {
+    cy.get('[href="/apps/new-tab/"] > .card-content').click();
+    cy.newTab();
   });
 });

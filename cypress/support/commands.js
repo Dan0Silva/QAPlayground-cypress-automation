@@ -1,3 +1,5 @@
+import "@4tw/cypress-drag-drop";
+
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -154,4 +156,21 @@ Cypress.Commands.add("multiLevelDropdown", () => {
   // Verificar se o dropdown sumiu
   cy.get(":nth-child(4) > a.icon-button").click();
   cy.get(".dropdown").should("not.exist");
+});
+
+Cypress.Commands.add("sortableList", () => {
+  /**
+   * skip for now
+   *
+   */
+
+  cy.get("li > div > p").contains("Jeff Bezos").drag('[data-index="0"]');
+  cy.get("#check").click();
+
+  cy.contains("Bill Gates").drag('[data-index="1"]');
+});
+
+Cypress.Commands.add("newTab", () => {
+  cy.get("#open").invoke("removeAttr", "target").click();
+  cy.get("h1").should("have.text", "Welcome to the new page!");
 });

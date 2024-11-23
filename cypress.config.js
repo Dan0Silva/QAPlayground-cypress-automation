@@ -5,5 +5,7 @@ module.exports = defineConfig({
     baseUrl: "https://qaplayground.dev/",
     chromeWebSecurity: false,
     screenshotOnRunFailure: false,
+    viewportHeight: 1220,
+    viewportWidth: 1080,
   },
 });
