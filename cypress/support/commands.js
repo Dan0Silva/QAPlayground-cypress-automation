@@ -174,3 +174,7 @@ Cypress.Commands.add("newTab", () => {
   cy.get("#open").invoke("removeAttr", "target").click();
   cy.get("h1").should("have.text", "Welcome to the new page!");
 });
+
+Cypress.Commands.add("popupWindow", () => {
+  cy.get("#login").click();
+});

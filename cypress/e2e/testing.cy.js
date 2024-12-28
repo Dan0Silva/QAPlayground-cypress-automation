@@ -30,8 +30,13 @@ describe("QA Playground testing", () => {
     cy.sortableList();
   });
 
-  it.only("Open new tab by clicking on the button and assert text on the opened new page", () => {
+  it("Open new tab by clicking on the button and assert text on the opened new page", () => {
     cy.get('[href="/apps/new-tab/"] > .card-content').click();
     cy.newTab();
+  });
+
+  it.only("Open pop-up and click on the button in it and assert text on the main window", () => {
+    cy.get('[href="/apps/popup/"] > .card-content').click();
+    cy.popupWindow();
   });
 });
